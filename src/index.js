@@ -34,6 +34,7 @@ fetchBreeds()
 refs.selector.addEventListener('change', demonstrateBreed);
 
 function demonstrateBreed(event) {
+  event.preventDefault();
   const breedId = event.currentTarget.value;
   if (!breedId) {
     return;
@@ -62,6 +63,7 @@ function demonstrateBreed(event) {
 function fetchError(error) {
   refs.selector.hidden = false;
   refs.loader.classList.add('is-hidden');
+  refs.boxCatInfo.classList.add('is-hidden');
 
   Notify.failure(
     'Oops! Something went wrong! Try reloading the page or select another cat breed!',
